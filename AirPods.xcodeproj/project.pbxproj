@@ -11,6 +11,8 @@
 		F802C9A6237995B100C13C5E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F802C9A5237995B100C13C5E /* ViewController.swift */; };
 		F802C9A8237995B400C13C5E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F802C9A7237995B400C13C5E /* Assets.xcassets */; };
 		F802C9AB237995B400C13C5E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F802C9A9237995B400C13C5E /* Main.storyboard */; };
+		F8624E36237B0567008897B7 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8624E34237B0567008897B7 /* Item.swift */; };
+		F8624E37237B0567008897B7 /* Item.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8624E35237B0567008897B7 /* Item.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,8 @@
 		F802C9AA237995B400C13C5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F802C9AC237995B400C13C5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F802C9AD237995B400C13C5E /* AirPods.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AirPods.entitlements; sourceTree = "<group>"; };
+		F8624E34237B0567008897B7 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		F8624E35237B0567008897B7 /* Item.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Item.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,8 @@
 				F802C9A9237995B400C13C5E /* Main.storyboard */,
 				F802C9AC237995B400C13C5E /* Info.plist */,
 				F802C9AD237995B400C13C5E /* AirPods.entitlements */,
+				F8624E34237B0567008897B7 /* Item.swift */,
+				F8624E35237B0567008897B7 /* Item.xib */,
 			);
 			path = AirPods;
 			sourceTree = "<group>";
@@ -122,6 +128,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F802C9A8237995B400C13C5E /* Assets.xcassets in Resources */,
+				F8624E37237B0567008897B7 /* Item.xib in Resources */,
 				F802C9AB237995B400C13C5E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -134,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F802C9A6237995B100C13C5E /* ViewController.swift in Sources */,
+				F8624E36237B0567008897B7 /* Item.swift in Sources */,
 				F802C9A4237995B100C13C5E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

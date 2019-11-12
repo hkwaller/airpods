@@ -7,20 +7,79 @@
 //
 
 import Cocoa
+import IOBluetooth
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-
+    let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
+    let popover = NSPopover()
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
+        if let button = statusItem.button {
+            button.image = NSImage(named:NSImage.Name("airpods"))
+            button.action = Selector("connect:")
+            button.sendAction(on: [.leftMouseUp, .rightMouseUp])
+        }
+                
+        let name = UserDefaults.standard.string(forKey: "deviceName") ?? ""
+        if name == "" {
+            popover.contentViewController = ViewController.freshController()
+//            togglePopover(self)
+        }
+          
     }
 
-    func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
+    @IBAction func connect(_ sender: Any?) {
+        let event = NSApp.currentEvent!
+
+        if event.type == NSEvent.EventType.rightMouseUp {
+           togglePopover()
+        } else {
+             guard let devices = IOBluetoothDevice.pairedDevices() else {
+                 print("No devices")
+                 return
+             }
+
+             let storedName = UserDefaults.standard.string(forKey: "airpods") ?? ""
+             
+             if storedName == "" {
+                 popover.contentViewController = ViewController.freshController()
+             }
+        
+             for item in devices {
+                 if let device = item as? IOBluetoothDevice {
+                     if device.name == storedName {
+                         if !device.isConnected() {
+                            device.openConnection()
+                            statusItem.button?.image = NSImage(named:NSImage.Name("airpodsConnected"))
+                         }
+                         else {
+                            device.closeConnection()
+                            statusItem.button?.image = NSImage(named:NSImage.Name("airpods"))
+                        }
+                     }
+                 }
+             }
+        }
+    }
+    
+    @objc func togglePopover() {
+      if popover.isShown {
+        closePopover()
+      } else {
+        showPopover()
+      }
     }
 
+    func showPopover() {
+      if let button = statusItem.button {
+        popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
+      }
+    }
 
+    public func closePopover() {
+      popover.performClose(self)
+    }
 }
 
