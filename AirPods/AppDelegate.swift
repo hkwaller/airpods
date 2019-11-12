@@ -17,17 +17,39 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         if let button = statusItem.button {
-            button.image = NSImage(named:NSImage.Name("airpods"))
-            button.action = Selector("connect:")
+            button.action = Selector(("connect:"))
             button.sendAction(on: [.leftMouseUp, .rightMouseUp])
         }
                 
-        let name = UserDefaults.standard.string(forKey: "deviceName") ?? ""
+        let name = UserDefaults.standard.string(forKey: "airpods") ?? ""
+        
         if name == "" {
             popover.contentViewController = ViewController.freshController()
-//            togglePopover(self)
+            togglePopover()
         }
-          
+        
+        guard let devices = IOBluetoothDevice.pairedDevices() else {
+            print("No devices")
+            return
+        }
+        
+        let storedName = UserDefaults.standard.string(forKey: "airpods") ?? ""
+             
+        if storedName == "" {
+            popover.contentViewController = ViewController.freshController()
+        }
+
+        for item in devices {
+            if let device = item as? IOBluetoothDevice {
+                if device.name == storedName {
+                    if device.isConnected() {
+                        statusItem.button?.image = NSImage(named:NSImage.Name("airpodsConnected"))
+                    } else {
+                        statusItem.button?.image = NSImage(named:NSImage.Name("airpods"))
+                    }
+                }
+            }
+        }
     }
 
     @IBAction func connect(_ sender: Any?) {
@@ -53,8 +75,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                          if !device.isConnected() {
                             device.openConnection()
                             statusItem.button?.image = NSImage(named:NSImage.Name("airpodsConnected"))
-                         }
-                         else {
+                         } else {
                             device.closeConnection()
                             statusItem.button?.image = NSImage(named:NSImage.Name("airpods"))
                         }

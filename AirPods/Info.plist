@@ -42,8 +42,6 @@
 	<true/>
 	<key>NSSupportsSuddenTermination</key>
 	<true/>
-	<key>NSAppleEventsUsageDescription</key>
-	<string>I wanna do stuff</string>
     <key>NSBluetoothPeripheralUsageDescription</key>
     <string>I wanna use this yo</string>
 </dict>
