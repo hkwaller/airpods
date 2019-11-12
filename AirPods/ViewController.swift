@@ -42,6 +42,9 @@ class ViewController: NSViewController {
     @IBAction func nopeAirpods(_ sender: Any) {
         descriptionLabel.stringValue = "Is it one of these then?"
     }
+    @IBAction func quit(_ sender: Any) {
+        NSApplication.shared.terminate(sender)
+    }
 }
 
 extension ViewController {

@@ -723,6 +723,16 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cso-fk-lME">
+                                <rect key="frame" x="14" y="13" width="66" height="32"/>
+                                <buttonCell key="cell" type="push" title="Quit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mih-ei-ecB">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="quit:" target="XfG-lQ-9wD" id="EJK-bM-Fj8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="htg-8R-bB7" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="14" id="IgK-oI-iQ7"/>
@@ -731,6 +741,8 @@
                             <constraint firstAttribute="trailing" secondItem="ZEe-YQ-3w5" secondAttribute="trailing" constant="20" id="YOw-df-XYV"/>
                             <constraint firstAttribute="bottom" secondItem="ZEe-YQ-3w5" secondAttribute="bottom" constant="20" id="Z29-9k-iLU"/>
                             <constraint firstItem="peE-pq-QqY" firstAttribute="top" secondItem="htg-8R-bB7" secondAttribute="bottom" constant="18" id="att-W2-ko7"/>
+                            <constraint firstAttribute="bottom" secondItem="cso-fk-lME" secondAttribute="bottom" constant="20" id="qQo-0U-nU1"/>
+                            <constraint firstItem="cso-fk-lME" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="t0g-j0-Pph"/>
                             <constraint firstItem="m1s-WT-Cqj" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="vJu-52-rwx"/>
                             <constraint firstItem="peE-pq-QqY" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="yZl-Ac-2DQ"/>
                         </constraints>

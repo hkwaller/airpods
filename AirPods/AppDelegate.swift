@@ -95,6 +95,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func showPopover() {
       if let button = statusItem.button {
+        popover.contentViewController = ViewController.freshController()
         popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
       }
     }
