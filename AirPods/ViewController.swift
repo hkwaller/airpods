@@ -26,7 +26,7 @@ class ViewController: NSViewController {
          for item in devices {
             if let device = item as? IOBluetoothDevice,
                 let name = device.name {
-                if name.lowercased().contains("airpods") {
+                if name.lowercased().contains("airpod") {
                     airpodsLabel.stringValue = device.name
                 } 
             }

@@ -20,14 +20,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             button.action = Selector(("connect:"))
             button.sendAction(on: [.leftMouseUp, .rightMouseUp])
         }
-                
-        let name = UserDefaults.standard.string(forKey: "airpods") ?? ""
-        
-        if name == "" {
-            popover.contentViewController = ViewController.freshController()
-            togglePopover()
-        }
-        
+                        
         guard let devices = IOBluetoothDevice.pairedDevices() else {
             print("No devices")
             return
@@ -37,6 +30,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
              
         if storedName == "" {
             popover.contentViewController = ViewController.freshController()
+            togglePopover()
         }
 
         for item in devices {
