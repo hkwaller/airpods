@@ -35,12 +35,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         for item in devices {
             if let device = item as? IOBluetoothDevice {
-                if device.name == storedName {
-                    if device.isConnected() {
-                        statusItem.button?.image = NSImage(named:NSImage.Name("airpodsConnected"))
-                    } else {
-                        statusItem.button?.image = NSImage(named:NSImage.Name("airpods"))
-                    }
+                if device.name == storedName && device.isConnected() {
+                    statusItem.button?.image = NSImage(named:NSImage.Name("airpodsConnected"))
+                } else {
+                    statusItem.button?.image = NSImage(named:NSImage.Name("airpods"))
                 }
             }
         }
