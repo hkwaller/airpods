@@ -33,12 +33,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             togglePopover()
         }
 
+        statusItem.button?.image = NSImage(named:NSImage.Name("airpods"))
         for item in devices {
             if let device = item as? IOBluetoothDevice {
-                if device.name == storedName && device.isConnected() {
+                if (device.name != nil) && device.name.lowercased().contains("airpod") && device.isConnected() {
                     statusItem.button?.image = NSImage(named:NSImage.Name("airpodsConnected"))
-                } else {
-                    statusItem.button?.image = NSImage(named:NSImage.Name("airpods"))
                 }
             }
         }
